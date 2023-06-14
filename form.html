@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <form action="">
+
         <div class="main">
             <h2 style="text-align: center; padding-top: 30px; color:  white;">form validation</h2>
             <div class="center_div">
@@ -68,60 +68,49 @@
             </div>
 
      
-
-
-    </form>
-
-    
     <script>
 
-        function updateChildOptions() {
-            var parentDropdown = document.getElementById("parentDropdown");
-            var childDropdown = document.getElementById("childDropdown");
-            var grandchildDropdown = document.getElementById("grandchildDropdown");
+function updateChildOptions() {
+    var parentDropdown = document.getElementById("parentDropdown");
+    var childDropdown = document.getElementById("childDropdown");
+    var grandchildDropdown = document.getElementById("grandchildDropdown");
 
-           
-            childDropdown.innerHTML = "";
-            grandchildDropdown.innerHTML = "";
+   
+    childDropdown.innerHTML = "";
+    grandchildDropdown.innerHTML = "";
 
-            // Get selected value from parent dropdown
-            var selectedOption = parentDropdown.value;
+    // Get selected value from parent dropdown
+    var selectedOption = parentDropdown.value;
 
-         
-            if (selectedOption === "mcs") {
-                childDropdown.innerHTML += "<option >Year</option>";
-                childDropdown.innerHTML += "<option value='childOption1'>2 year</option>";
-            } else if (selectedOption === "bscs") {
-                childDropdown.innerHTML += "<option >Year</option>";
-                childDropdown.innerHTML += "<option value='childOption2'>4 year</option>";
-            }
+ 
+    if (selectedOption === "mcs") {
+        childDropdown.innerHTML += "<option> Year</option>";
+        childDropdown.innerHTML += "<option  value='2 year' >2 year</option>";
+    } else if (selectedOption === "bscs") {
+        childDropdown.innerHTML += "<option >Year</option>";
+        childDropdown.innerHTML += "<option value='BSCS'>4 year</option>";
+    }
 
-        }
+}
 
-        function updateGrandchildOptions() {
-            var childDropdown = document.getElementById("childDropdown");
-            var grandchildDropdown = document.getElementById("grandchildDropdown");
+function updateGrandchildOptions() {
+    var childDropdown = document.getElementById("childDropdown");
+    var grandchildDropdown = document.getElementById("grandchildDropdown");
 
-           
-            grandchildDropdown.innerHTML = "";         
-            var selectedOption = childDropdown.value;
+   
+    grandchildDropdown.innerHTML = "";         
+    var selectedOption = childDropdown.value;
 
-            // Based on the selected value, populate the grandchild dropdown options
-            if (selectedOption === "childOption1") {
-                grandchildDropdown.innerHTML += "<option >Master</option>";
-                // grandchildDropdown.innerHTML += "<option value='grandchildOption2'>Grandchild Option 2</option>";
-            } else if (selectedOption === "childOption2") {
-                grandchildDropdown.innerHTML += "<option>honors</option>";
-                // grandchildDropdown.innerHTML += "<option value='grandchildOption4'>Grandchild Option 4</option>";
-            }
+    // Based on the selected value, populate the grandchild dropdown options
+    if (selectedOption === "2 year") {
+        grandchildDropdown.innerHTML += "<option >Master</option>";
+        // grandchildDropdown.innerHTML += "<option value='grandchildOption2'>Grandchild Option 2</option>";
+    } else if (selectedOption === "BSCS") {
+        grandchildDropdown.innerHTML += "<option >honors</option>";
+        // grandchildDropdown.innerHTML += "<option value='grandchildOption4'>Grandchild Option 4</option>";
+    }
 
-        }
-
-
-
-
-
-
+}
 
         function myFunction() {
             var x = document.getElementById("myInput");
@@ -142,37 +131,44 @@
 
 
 
-        function submitForm() {
-            var name = document.getElementById("input_full").value;
-            var user = document.getElementById("input_user").value;
-            var mobile = document.getElementById("input_mobile").value;
-            var email = document.getElementById("input_email").value;
-            var password = document.getElementById("myInput").value;
-            // var password = document.getElementsByClassName("input_pass").value
+       function submitForm() {
+    var name = document.getElementById("inputFull").value;
+    var user = document.getElementById("inputUser").value;
+    var mobile = document.getElementById("inputMobile").value;
+    var email = document.getElementById("inputEmail").value;
+    var password = document.getElementById("myInput").value;
+    var Degree= document.getElementById("parentDropdown").value;
+    var year= document.getElementById("childDropdown").value;
+    var dep=document.getElementById("grandchildDropdown").value;
+    // var drop= document.getElementById("grandchildDropdown").value;
+
+
+    // var password = document.getElementsByClassName("input_pass").value
 
 
 
-            var formData = {
-              name: name,
-              user : user,
-              mobile :mobile,
-              email: email,
-              password: password
-            };
+    var formData = {
+      name: name,
+      user : user,
+      mobile :mobile,
+      email: email,
+      password: password,
+      Degree:Degree,
+      year:year,
+      dep:dep
 
-            console.log(formData); // Display the form data object in the console or do something else with it
 
-            // You can also display the form data on the page if desired
-            var displayArea = document.getElementById("displayArea");
-            displayArea.textContent = JSON.stringify(formData, null, 0);
-        }
+    };
+
+    console.log( formData); // Display the form data object in the console or do something else with it
+
 
 
 
 
     </script>
 
-    <pre id="displayArea"></pre> 
+   
 
 </body>
 
